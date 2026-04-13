@@ -299,8 +299,8 @@ public class registF1 extends javax.swing.JFrame {
         jPanel12.add(sq, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, 250, -1));
         jPanel12.add(ans, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, 180, 30));
 
-        jLabel10.setIcon(new javax.swing.ImageIcon("C:\\Users\\Gwapo ko\\Downloads\\ChatGPT Image May 20, 2025, 09_54_59 PM.png")); // NOI18N
-        jPanel12.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 850, 500));
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/register/bavk.jpg"))); // NOI18N
+        jPanel12.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(-180, -70, 940, 570));
 
         getContentPane().add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 500));
 
