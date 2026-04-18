@@ -165,8 +165,11 @@ public class Admindashboard extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         logstbl = new javax.swing.JTable();
+        minimize = new javax.swing.JLabel();
+        close = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(1009, 719));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
@@ -175,7 +178,7 @@ public class Admindashboard extends javax.swing.JFrame {
         });
         getContentPane().setLayout(null);
 
-        jPanel1.setBackground(new java.awt.Color(0, 51, 102));
+        jPanel1.setBackground(new java.awt.Color(173, 173, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton2.setText("LOG-OUT");
@@ -274,18 +277,18 @@ public class Admindashboard extends javax.swing.JFrame {
         acc_lname.setForeground(new java.awt.Color(255, 255, 255));
         acc_lname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         acc_lname.setText("ADMIN");
-        jPanel1.add(acc_lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, 70, 20));
+        jPanel1.add(acc_lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 50, 20));
 
         acc_fname.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         acc_fname.setForeground(new java.awt.Color(255, 255, 255));
         acc_fname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         acc_fname.setText("ADMIN");
-        jPanel1.add(acc_fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, -1, -1));
+        jPanel1.add(acc_fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, -1, 20));
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 240, 720);
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBackground(new java.awt.Color(204, 204, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic", 3, 36)); // NOI18N
@@ -311,6 +314,24 @@ public class Admindashboard extends javax.swing.JFrame {
         jScrollPane1.setViewportView(logstbl);
 
         jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 730, 400));
+
+        minimize.setFont(new java.awt.Font("Yu Gothic", 1, 36)); // NOI18N
+        minimize.setText("-");
+        minimize.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                minimizeMouseClicked(evt);
+            }
+        });
+        jPanel3.add(minimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, -1, -1));
+
+        close.setFont(new java.awt.Font("Yu Gothic", 1, 36)); // NOI18N
+        close.setText("x");
+        close.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                closeMouseClicked(evt);
+            }
+        });
+        jPanel3.add(close, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 20, -1, -1));
 
         getContentPane().add(jPanel3);
         jPanel3.setBounds(240, 0, 770, 720);
@@ -377,6 +398,14 @@ public class Admindashboard extends javax.swing.JFrame {
           
     }//GEN-LAST:event_jPanel5MouseClicked
 
+    private void closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseClicked
+         System.exit(0);
+    }//GEN-LAST:event_closeMouseClicked
+
+    private void minimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseClicked
+       setState(ICONIFIED);
+    }//GEN-LAST:event_minimizeMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -416,6 +445,7 @@ public class Admindashboard extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel acc_fname;
     private javax.swing.JLabel acc_lname;
+    private javax.swing.JLabel close;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
@@ -433,6 +463,7 @@ public class Admindashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable logstbl;
+    private javax.swing.JLabel minimize;
     private javax.swing.JLabel u_image;
     // End of variables declaration//GEN-END:variables
 }

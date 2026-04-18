@@ -303,11 +303,12 @@ public class userLoginF extends javax.swing.JFrame {
         acc_lname = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        close = new javax.swing.JLabel();
         add = new javax.swing.JButton();
         update = new javax.swing.JButton();
         register1 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
@@ -316,6 +317,7 @@ public class userLoginF extends javax.swing.JFrame {
         user_table = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -332,11 +334,11 @@ public class userLoginF extends javax.swing.JFrame {
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel15.setText("              Current User");
         jLabel15.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 140, 20));
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 140, 20));
 
         acc_id.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         acc_id.setText("ID");
-        jPanel1.add(acc_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 140, 20));
+        jPanel1.add(acc_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 140, 20));
 
         acc_fname.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         acc_fname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -346,24 +348,25 @@ public class userLoginF extends javax.swing.JFrame {
         acc_lname.setText("ACC_LNAME");
         jPanel1.add(acc_lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 400));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 400));
 
-        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel2.setBackground(new java.awt.Color(173, 173, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("USERS");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 50, 30));
 
-        jLabel5.setFont(new java.awt.Font("Yu Gothic", 1, 36)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("x");
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+        close.setBackground(new java.awt.Color(173, 173, 255));
+        close.setFont(new java.awt.Font("Yu Gothic", 1, 36)); // NOI18N
+        close.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        close.setText("x");
+        close.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel5MouseClicked(evt);
+                closeMouseClicked(evt);
             }
         });
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 20, 30, 20));
+        jPanel2.add(close, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 20, 30, 20));
 
         add.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         add.setText("ADD");
@@ -406,18 +409,29 @@ public class userLoginF extends javax.swing.JFrame {
         });
         jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 20, 130, 40));
 
+        jLabel6.setBackground(new java.awt.Color(173, 173, 255));
+        jLabel6.setFont(new java.awt.Font("Yu Gothic", 1, 36)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("-");
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 20, 30, 20));
+
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 710, 70));
 
-        jPanel3.setBackground(new java.awt.Color(255, 0, 0));
+        jPanel3.setBackground(new java.awt.Color(204, 204, 255));
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, -1, 330));
 
-        jPanel4.setBackground(new java.awt.Color(255, 0, 0));
+        jPanel4.setBackground(new java.awt.Color(204, 204, 255));
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 700, -1));
 
-        jPanel6.setBackground(new java.awt.Color(255, 0, 0));
+        jPanel6.setBackground(new java.awt.Color(204, 204, 255));
         getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, 700, -1));
 
-        jPanel7.setBackground(new java.awt.Color(255, 0, 0));
+        jPanel7.setBackground(new java.awt.Color(204, 204, 255));
         getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 80, -1, 310));
 
         user_table.setModel(new javax.swing.table.DefaultTableModel(
@@ -436,11 +450,11 @@ public class userLoginF extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+    private void closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseClicked
      Admindashboard ds = new Admindashboard();
      ds.setVisible(true);
      this.dispose();
-    }//GEN-LAST:event_jLabel5MouseClicked
+    }//GEN-LAST:event_closeMouseClicked
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
           Session sess = Session.getInstance();
@@ -524,6 +538,10 @@ public class userLoginF extends javax.swing.JFrame {
         loadUsersData(); // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel6MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -565,11 +583,12 @@ public class userLoginF extends javax.swing.JFrame {
     private javax.swing.JLabel acc_id;
     private javax.swing.JLabel acc_lname;
     private javax.swing.JButton add;
+    private javax.swing.JLabel close;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

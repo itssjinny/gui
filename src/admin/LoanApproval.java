@@ -116,19 +116,23 @@ public class LoanApproval extends javax.swing.JFrame {
         area = new javax.swing.JTextArea();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        close = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(0, 51, 102));
+        jPanel2.setBackground(new java.awt.Color(173, 173, 255));
 
         cancel1.setBackground(new java.awt.Color(255, 255, 255));
         cancel1.setFont(new java.awt.Font("Yu Gothic UI", 1, 12)); // NOI18N
         cancel1.setForeground(new java.awt.Color(27, 57, 77));
         cancel1.setText("Cancel");
+        cancel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         cancel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 cancel1MouseClicked(evt);
@@ -221,9 +225,28 @@ public class LoanApproval extends javax.swing.JFrame {
         });
         jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 510, 70, 40));
 
+        close.setFont(new java.awt.Font("Yu Gothic", 1, 36)); // NOI18N
+        close.setText("x");
+        close.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                closeMouseClicked(evt);
+            }
+        });
+        jPanel1.add(close, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 10, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Yu Gothic", 1, 36)); // NOI18N
+        jLabel3.setText("-");
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 10, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, 590));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -425,6 +448,14 @@ try {
         this.dispose();
     }//GEN-LAST:event_cancel1ActionPerformed
 
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+       setState(ICONIFIED);
+    }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_closeMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -463,11 +494,13 @@ try {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JTextArea area;
     public javax.swing.JButton cancel1;
+    private javax.swing.JLabel close;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     public javax.swing.JButton jButton4;
     public javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

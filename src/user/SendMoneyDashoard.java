@@ -79,6 +79,8 @@ public class SendMoneyDashoard extends javax.swing.JFrame {
         Receivername = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        close = new javax.swing.JLabel();
+        minimize = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         acc_fname = new javax.swing.JLabel();
@@ -147,11 +149,29 @@ public class SendMoneyDashoard extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 3, 36)); // NOI18N
         jLabel4.setText("SEND MONEY DASHBOARD");
-        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, -1, -1));
+        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
+
+        close.setFont(new java.awt.Font("Yu Gothic", 1, 36)); // NOI18N
+        close.setText("x");
+        close.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                closeMouseClicked(evt);
+            }
+        });
+        jPanel4.add(close, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 0, -1, -1));
+
+        minimize.setFont(new java.awt.Font("Yu Gothic", 1, 36)); // NOI18N
+        minimize.setText("-");
+        minimize.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                minimizeMouseClicked(evt);
+            }
+        });
+        jPanel4.add(minimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, -1, -1));
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 630, 560));
 
-        jPanel1.setBackground(new java.awt.Color(0, 51, 102));
+        jPanel1.setBackground(new java.awt.Color(173, 173, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/user/VVT.png"))); // NOI18N
@@ -167,6 +187,7 @@ public class SendMoneyDashoard extends javax.swing.JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 120, 550));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void SenderusernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SenderusernameActionPerformed
@@ -333,6 +354,15 @@ public class SendMoneyDashoard extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void minimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseClicked
+         setState(ICONIFIED);
+    }//GEN-LAST:event_minimizeMouseClicked
+
+    private void closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseClicked
+        System.exit(0);
+        
+    }//GEN-LAST:event_closeMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -374,6 +404,7 @@ public class SendMoneyDashoard extends javax.swing.JFrame {
     private javax.swing.JLabel acc_fname;
     private javax.swing.JLabel acc_id;
     public javax.swing.JButton cancel;
+    private javax.swing.JLabel close;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -384,5 +415,6 @@ public class SendMoneyDashoard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JTextField loanamount;
+    private javax.swing.JLabel minimize;
     // End of variables declaration//GEN-END:variables
 }

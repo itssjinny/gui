@@ -244,6 +244,8 @@ public class CreateUsersF extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
@@ -283,10 +285,11 @@ public class CreateUsersF extends javax.swing.JFrame {
         remove = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, -1, -1));
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel1.setBackground(new java.awt.Color(173, 173, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -302,12 +305,20 @@ public class CreateUsersF extends javax.swing.JFrame {
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/register/YU.png"))); // NOI18N
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, 90));
 
+        jLabel6.setFont(new java.awt.Font("Yu Gothic", 1, 36)); // NOI18N
+        jLabel6.setText("x");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, -1, -1));
+
+        jLabel12.setFont(new java.awt.Font("Yu Gothic", 1, 36)); // NOI18N
+        jLabel12.setText("-");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 10, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 90));
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel7.setBackground(new java.awt.Color(51, 255, 153));
+        jPanel7.setBackground(new java.awt.Color(204, 204, 255));
         jPanel7.setLayout(null);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -325,7 +336,7 @@ public class CreateUsersF extends javax.swing.JFrame {
 
         jPanel10.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 280, 420, 30));
 
-        jPanel6.setBackground(new java.awt.Color(51, 255, 153));
+        jPanel6.setBackground(new java.awt.Color(204, 204, 255));
         jPanel6.setLayout(null);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -351,7 +362,7 @@ public class CreateUsersF extends javax.swing.JFrame {
 
         jPanel10.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 420, 30));
 
-        jPanel5.setBackground(new java.awt.Color(51, 255, 153));
+        jPanel5.setBackground(new java.awt.Color(204, 204, 255));
         jPanel5.setLayout(null);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -377,7 +388,7 @@ public class CreateUsersF extends javax.swing.JFrame {
 
         jPanel10.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 420, 30));
 
-        jPanel4.setBackground(new java.awt.Color(51, 255, 153));
+        jPanel4.setBackground(new java.awt.Color(204, 204, 255));
         jPanel4.setLayout(null);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -402,7 +413,7 @@ public class CreateUsersF extends javax.swing.JFrame {
 
         jPanel10.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 420, 30));
 
-        jPanel3.setBackground(new java.awt.Color(51, 255, 153));
+        jPanel3.setBackground(new java.awt.Color(204, 204, 255));
         jPanel3.setLayout(null);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -474,7 +485,7 @@ public class CreateUsersF extends javax.swing.JFrame {
         });
         jPanel10.add(check, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 280, -1, 30));
 
-        jPanel2.setBackground(new java.awt.Color(51, 255, 153));
+        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
         jPanel2.setLayout(null);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -526,7 +537,7 @@ public class CreateUsersF extends javax.swing.JFrame {
         jPanel10.add(sq, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 360, -1, -1));
         jPanel10.add(ans, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, 240, 40));
 
-        select.setBackground(new java.awt.Color(0, 51, 102));
+        select.setBackground(new java.awt.Color(173, 173, 255));
         select.setText("SELECT");
         select.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         select.addActionListener(new java.awt.event.ActionListener() {
@@ -536,7 +547,7 @@ public class CreateUsersF extends javax.swing.JFrame {
         });
         jPanel10.add(select, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 290, 80, 30));
 
-        remove.setBackground(new java.awt.Color(0, 51, 102));
+        remove.setBackground(new java.awt.Color(173, 173, 255));
         remove.setText("REMOVE");
         remove.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         remove.addActionListener(new java.awt.event.ActionListener() {
@@ -862,12 +873,14 @@ try {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;

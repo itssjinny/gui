@@ -223,9 +223,12 @@ public class loginF extends javax.swing.JFrame {
         MRmoving = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        close = new javax.swing.JLabel();
+        minimize = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -235,7 +238,7 @@ public class loginF extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 51, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel4.setBackground(new java.awt.Color(51, 255, 51));
+        jPanel4.setBackground(new java.awt.Color(204, 204, 255));
         jPanel4.setLayout(null);
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -277,7 +280,7 @@ public class loginF extends javax.swing.JFrame {
         jPanel4.add(jPanel6);
         jPanel6.setBounds(40, -40, 130, 20);
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, 180, 20));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, 180, 20));
 
         jPanel5.setBackground(new java.awt.Color(255, 204, 204));
         jPanel5.setLayout(null);
@@ -292,7 +295,7 @@ public class loginF extends javax.swing.JFrame {
         jPanel5.add(check);
         check.setBounds(0, 0, 70, 30);
 
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 210, 70, 30));
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 210, 70, 30));
 
         jPanel3.setBackground(new java.awt.Color(204, 255, 255));
         jPanel3.setLayout(null);
@@ -312,7 +315,7 @@ public class loginF extends javax.swing.JFrame {
         jPanel3.add(pw);
         pw.setBounds(90, 0, 150, 30);
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 250, 30));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, 250, 30));
 
         jPanel2.setBackground(new java.awt.Color(204, 255, 255));
         jPanel2.setLayout(null);
@@ -327,11 +330,11 @@ public class loginF extends javax.swing.JFrame {
         jPanel2.add(us);
         us.setBounds(90, 0, 150, 30);
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 250, 30));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 250, 30));
 
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/register/YU.png"))); // NOI18N
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, -1, 90));
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, 90));
 
         MRmoving.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         MRmoving.setForeground(new java.awt.Color(51, 51, 51));
@@ -355,7 +358,7 @@ public class loginF extends javax.swing.JFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -364,21 +367,41 @@ public class loginF extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, 130, 20));
+        jPanel1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, 130, 20));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Gwapo ko\\Downloads\\kupal1.png")); // NOI18N
+        close.setFont(new java.awt.Font("Yu Gothic", 1, 36)); // NOI18N
+        close.setText("x");
+        close.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                closeMouseClicked(evt);
+            }
+        });
+        jPanel1.add(close, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 10, -1, -1));
+
+        minimize.setFont(new java.awt.Font("Yu Gothic", 1, 36)); // NOI18N
+        minimize.setText("-");
+        minimize.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                minimizeMouseClicked(evt);
+            }
+        });
+        jPanel1.add(minimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 20, -1, 40));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/testappnew/bavk.jpg"))); // NOI18N
         jLabel5.setText("jLabel5");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 430));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-290, 0, 1190, 510));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 834, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 504, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -476,6 +499,14 @@ if (loginAcc(username, password)) {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void minimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseClicked
+       setState(ICONIFIED);
+    }//GEN-LAST:event_minimizeMouseClicked
+
+    private void closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_closeMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -514,6 +545,7 @@ if (loginAcc(username, password)) {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel MRmoving;
     private javax.swing.JCheckBox check;
+    private javax.swing.JLabel close;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -529,6 +561,7 @@ if (loginAcc(username, password)) {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JLabel minimize;
     private javax.swing.JPasswordField pw;
     private javax.swing.JTextField us;
     // End of variables declaration//GEN-END:variables

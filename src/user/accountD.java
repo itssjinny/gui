@@ -170,6 +170,8 @@ public class accountD extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         idd = new javax.swing.JLabel();
+        close = new javax.swing.JLabel();
+        minimize = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -202,7 +204,7 @@ public class accountD extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel2.setBackground(new java.awt.Color(173, 173, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel9.setFont(new java.awt.Font("Century Gothic", 3, 24)); // NOI18N
@@ -215,12 +217,30 @@ public class accountD extends javax.swing.JFrame {
         idd.setText("(UID)");
         jPanel2.add(idd, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 90, 80));
 
+        close.setFont(new java.awt.Font("Yu Gothic", 1, 36)); // NOI18N
+        close.setText("x");
+        close.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                closeMouseClicked(evt);
+            }
+        });
+        jPanel2.add(close, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 0, -1, -1));
+
+        minimize.setFont(new java.awt.Font("Yu Gothic", 1, 36)); // NOI18N
+        minimize.setText("-");
+        minimize.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                minimizeMouseClicked(evt);
+            }
+        });
+        jPanel2.add(minimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 0, -1, -1));
+
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 80));
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel7.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel7.setBackground(new java.awt.Color(204, 204, 255));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(51, 255, 153));
@@ -497,6 +517,14 @@ try (Connection conn = dbc.getConnection();
     }    // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void minimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseClicked
+        setState(ICONIFIED);
+    }//GEN-LAST:event_minimizeMouseClicked
+
+    private void closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_closeMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -543,6 +571,7 @@ try (Connection conn = dbc.getConnection();
     private javax.swing.JLabel acc_type;
     private javax.swing.JTextField acc_uname;
     public javax.swing.JButton cancel;
+    private javax.swing.JLabel close;
     private javax.swing.JLabel idd;
     private javax.swing.JLabel image;
     private javax.swing.JButton jButton1;
@@ -560,6 +589,7 @@ try (Connection conn = dbc.getConnection();
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JLabel minimize;
     public javax.swing.JButton update;
     // End of variables declaration//GEN-END:variables
 }

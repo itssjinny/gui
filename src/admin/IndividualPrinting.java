@@ -76,10 +76,16 @@ public class IndividualPrinting extends javax.swing.JFrame {
         aa = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
-        jPanel2.setBackground(new java.awt.Color(0, 51, 102));
+        jPanel2.setBackground(new java.awt.Color(173, 173, 255));
+        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel2MouseClicked(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -285,7 +291,7 @@ public class IndividualPrinting extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        userLoginF ds = new userLoginF();
+            userLoginF ds = new userLoginF();
         ds.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jLabel2MouseClicked
@@ -295,6 +301,10 @@ public class IndividualPrinting extends javax.swing.JFrame {
         PanelPrinter pPrint = new PanelPrinter(page);
         pPrint.printPanel();
     }//GEN-LAST:event_aaActionPerformed
+
+    private void jPanel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseClicked
+         // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel2MouseClicked
 
     /**
      * @param args the command line arguments

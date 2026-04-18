@@ -165,8 +165,11 @@ public class AccountAdminDetails extends javax.swing.JFrame {
         image = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         update = new javax.swing.JButton();
+        close = new javax.swing.JLabel();
+        minimize = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -183,7 +186,7 @@ public class AccountAdminDetails extends javax.swing.JFrame {
         jLabel9.setText("ACCOUNT INFROMATION");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, 330, 34));
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel2.setBackground(new java.awt.Color(173, 173, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -196,7 +199,7 @@ public class AccountAdminDetails extends javax.swing.JFrame {
                 acc_emailActionPerformed(evt);
             }
         });
-        jPanel2.add(acc_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 160, 30));
+        jPanel2.add(acc_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, 160, 30));
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel2.setText("Email :");
@@ -216,7 +219,7 @@ public class AccountAdminDetails extends javax.swing.JFrame {
                 acc_fnameActionPerformed(evt);
             }
         });
-        jPanel2.add(acc_fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 160, 30));
+        jPanel2.add(acc_fname, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 160, 30));
 
         acc_lname.setEnabled(false);
         acc_lname.addActionListener(new java.awt.event.ActionListener() {
@@ -224,7 +227,7 @@ public class AccountAdminDetails extends javax.swing.JFrame {
                 acc_lnameActionPerformed(evt);
             }
         });
-        jPanel2.add(acc_lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 160, 30));
+        jPanel2.add(acc_lname, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 160, 30));
 
         acc_uname.setEnabled(false);
         acc_uname.addActionListener(new java.awt.event.ActionListener() {
@@ -232,7 +235,7 @@ public class AccountAdminDetails extends javax.swing.JFrame {
                 acc_unameActionPerformed(evt);
             }
         });
-        jPanel2.add(acc_uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 160, 30));
+        jPanel2.add(acc_uname, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 160, 30));
 
         acc_id.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         acc_id.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -244,9 +247,8 @@ public class AccountAdminDetails extends javax.swing.JFrame {
         acc_type.setText("Type");
         jPanel2.add(acc_type, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 140, 30));
 
-        cancel.setBackground(new java.awt.Color(255, 255, 255));
+        cancel.setBackground(new java.awt.Color(27, 57, 77));
         cancel.setFont(new java.awt.Font("Yu Gothic UI", 1, 12)); // NOI18N
-        cancel.setForeground(new java.awt.Color(27, 57, 77));
         cancel.setText("Cancel");
         cancel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -288,7 +290,6 @@ public class AccountAdminDetails extends javax.swing.JFrame {
 
         update.setBackground(new java.awt.Color(27, 55, 77));
         update.setFont(new java.awt.Font("Yu Gothic UI", 1, 12)); // NOI18N
-        update.setForeground(new java.awt.Color(255, 255, 255));
         update.setText("Save ");
         update.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -304,9 +305,28 @@ public class AccountAdminDetails extends javax.swing.JFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 600, 330));
 
+        close.setFont(new java.awt.Font("Gadugi", 1, 36)); // NOI18N
+        close.setText("x");
+        close.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                closeMouseClicked(evt);
+            }
+        });
+        jPanel1.add(close, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 20, 30, -1));
+
+        minimize.setFont(new java.awt.Font("Yu Gothic", 1, 36)); // NOI18N
+        minimize.setText("-");
+        minimize.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                minimizeMouseClicked(evt);
+            }
+        });
+        jPanel1.add(minimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 20, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 520));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void acc_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acc_emailActionPerformed
@@ -463,6 +483,14 @@ public class AccountAdminDetails extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_updateActionPerformed
 
+    private void minimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseClicked
+         setState(ICONIFIED);
+    }//GEN-LAST:event_minimizeMouseClicked
+
+    private void closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_closeMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -506,6 +534,7 @@ public class AccountAdminDetails extends javax.swing.JFrame {
     private javax.swing.JLabel acc_type;
     public javax.swing.JTextField acc_uname;
     public javax.swing.JButton cancel;
+    private javax.swing.JLabel close;
     private javax.swing.JLabel image;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -516,6 +545,7 @@ public class AccountAdminDetails extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JLabel minimize;
     public javax.swing.JButton update;
     // End of variables declaration//GEN-END:variables
 }

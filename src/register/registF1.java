@@ -142,6 +142,8 @@ public class registF1 extends javax.swing.JFrame {
         check = new javax.swing.JCheckBox();
         sq = new javax.swing.JComboBox<>();
         ans = new javax.swing.JTextField();
+        close = new javax.swing.JLabel();
+        minimize = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/register/zz3-removebg-preview.png"))); // NOI18N
@@ -159,7 +161,7 @@ public class registF1 extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("REGISTRATION ");
-        jPanel12.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 230, 40));
+        jPanel12.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 230, 40));
 
         jPanel7.setBackground(new java.awt.Color(204, 255, 255));
         jPanel7.setLayout(null);
@@ -263,7 +265,7 @@ public class registF1 extends javax.swing.JFrame {
 
         jPanel12.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 360, 270, 20));
 
-        jPanel10.setBackground(new java.awt.Color(255, 51, 0));
+        jPanel10.setBackground(new java.awt.Color(204, 204, 255));
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -299,80 +301,32 @@ public class registF1 extends javax.swing.JFrame {
         jPanel12.add(sq, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, 250, -1));
         jPanel12.add(ans, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, 180, 30));
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/register/bavk.jpg"))); // NOI18N
-        jPanel12.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(-180, -70, 940, 570));
+        close.setFont(new java.awt.Font("Yu Gothic", 1, 36)); // NOI18N
+        close.setText("x");
+        close.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                closeMouseClicked(evt);
+            }
+        });
+        jPanel12.add(close, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, -1, -1));
 
-        getContentPane().add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 500));
+        minimize.setFont(new java.awt.Font("Yu Gothic", 1, 36)); // NOI18N
+        minimize.setText("-");
+        minimize.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                minimizeMouseClicked(evt);
+            }
+        });
+        jPanel12.add(minimize, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 20, -1, -1));
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/register/bavk.jpg"))); // NOI18N
+        jPanel12.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(-270, -10, 1130, 520));
+
+        getContentPane().add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 510));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    
-if(fn.getText().isEmpty() || ln.getText().isEmpty() || mail.getText().isEmpty() || us.getText().isEmpty() || 
-   pw.getText().isEmpty() || ans.getText().isEmpty()) {  // Check if answer is empty
-    JOptionPane.showMessageDialog(null, "All fields are required!");   
-} else if(pw.getText().length() < 8) {
-    JOptionPane.showMessageDialog(null, "Password must be at least 8 characters.");
-    pw.setText("");
-} else if(duplicateCheck()) {
-    System.out.println("Duplicate Exists!");
-} else {
-    dbConnector dbc = new dbConnector();
-    try {
-        String pass = passwordHasher.hashPassword(pw.getText()); // Hash password
-        String secQuestion = sq.getSelectedItem().toString();
-        String secAnswer = passwordHasher.hashPassword(ans.getText()); // 🔐 Hash security answer
-
-        // ✅ Added balance field
-        String query = "INSERT INTO tbl_users (u_fname, u_lname, u_email, u_username, u_password, security_question, security_answer, u_type, u_image, u_status, balance) "
-                     + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'Null', 'Pending', ?)";
-
-        try (Connection con = dbc.getConnection();
-             PreparedStatement stmt = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
-            stmt.setString(1, fn.getText());
-            stmt.setString(2, ln.getText());
-            stmt.setString(3, mail.getText());
-            stmt.setString(4, us.getText());
-            stmt.setString(5, pass);           // Hashed password
-            stmt.setString(6, secQuestion);
-            stmt.setString(7, secAnswer);      // Hashed security answer
-            stmt.setString(8, ut.getSelectedItem().toString());
-            stmt.setDouble(9, 0.00);           // ✅ Initial balance is 0.00
-
-            int rowsInserted = stmt.executeUpdate();
-            if (rowsInserted > 0) {
-                try (ResultSet rs = stmt.getGeneratedKeys()) {
-                    if (rs.next()) {
-                        int userId = rs.getInt(1); // The auto-generated user ID
-                        logEvent(userId, us.getText(), "New user registered: " + us.getText());
-
-                        JOptionPane.showMessageDialog(null, "Registration Successful!");
-                        loginF lfr = new loginF();
-                        lfr.setVisible(true);
-                        this.dispose();
-                    }
-                }
-            } else {
-                JOptionPane.showMessageDialog(null, "Registration Failed. Try again!");      
-            }
-        }
-    } catch (SQLException | NoSuchAlgorithmException ex) {
-        System.out.println("Error: " + ex.getMessage());
-    }
-}
-
-
-
-        
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       loginF ads = new loginF();
-       ads.setVisible(true);
-      this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void checkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkActionPerformed
        
@@ -401,6 +355,77 @@ if(fn.getText().isEmpty() || ln.getText().isEmpty() || mail.getText().isEmpty() 
     private void utActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_utActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_utActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+        if(fn.getText().isEmpty() || ln.getText().isEmpty() || mail.getText().isEmpty() || us.getText().isEmpty() ||
+            pw.getText().isEmpty() || ans.getText().isEmpty()) {  // Check if answer is empty
+            JOptionPane.showMessageDialog(null, "All fields are required!");
+        } else if(pw.getText().length() < 8) {
+            JOptionPane.showMessageDialog(null, "Password must be at least 8 characters.");
+            pw.setText("");
+        } else if(duplicateCheck()) {
+            System.out.println("Duplicate Exists!");
+        } else {
+            dbConnector dbc = new dbConnector();
+            try {
+                String pass = passwordHasher.hashPassword(pw.getText()); // Hash password
+                String secQuestion = sq.getSelectedItem().toString();
+                String secAnswer = passwordHasher.hashPassword(ans.getText()); // 🔐 Hash security answer
+
+                // ✅ Added balance field
+                String query = "INSERT INTO tbl_users (u_fname, u_lname, u_email, u_username, u_password, security_question, security_answer, u_type, u_image, u_status, balance) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'Null', 'Pending', ?)";
+
+                try (Connection con = dbc.getConnection();
+                    PreparedStatement stmt = con.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)) {
+                    stmt.setString(1, fn.getText());
+                    stmt.setString(2, ln.getText());
+                    stmt.setString(3, mail.getText());
+                    stmt.setString(4, us.getText());
+                    stmt.setString(5, pass);           // Hashed password
+                    stmt.setString(6, secQuestion);
+                    stmt.setString(7, secAnswer);      // Hashed security answer
+                    stmt.setString(8, ut.getSelectedItem().toString());
+                    stmt.setDouble(9, 0.00);           // ✅ Initial balance is 0.00
+
+                    int rowsInserted = stmt.executeUpdate();
+                    if (rowsInserted > 0) {
+                        try (ResultSet rs = stmt.getGeneratedKeys()) {
+                            if (rs.next()) {
+                                int userId = rs.getInt(1); // The auto-generated user ID
+                                logEvent(userId, us.getText(), "New user registered: " + us.getText());
+
+                                JOptionPane.showMessageDialog(null, "Registration Successful!");
+                                loginF lfr = new loginF();
+                                lfr.setVisible(true);
+                                this.dispose();
+                            }
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Registration Failed. Try again!");
+                    }
+                }
+            } catch (SQLException | NoSuchAlgorithmException ex) {
+                System.out.println("Error: " + ex.getMessage());
+            }
+        }
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        loginF ads = new loginF();
+        ads.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void minimizeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimizeMouseClicked
+         setState(ICONIFIED);
+    }//GEN-LAST:event_minimizeMouseClicked
+
+    private void closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_closeMouseClicked
 
     /**
      * @param args the command line arguments
@@ -441,6 +466,7 @@ if(fn.getText().isEmpty() || ln.getText().isEmpty() || mail.getText().isEmpty() 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ans;
     private javax.swing.JCheckBox check;
+    private javax.swing.JLabel close;
     private javax.swing.JTextField fn;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -464,6 +490,7 @@ if(fn.getText().isEmpty() || ln.getText().isEmpty() || mail.getText().isEmpty() 
     private javax.swing.JPanel jPanel9;
     private javax.swing.JTextField ln;
     private javax.swing.JTextField mail;
+    private javax.swing.JLabel minimize;
     private javax.swing.JPasswordField pw;
     private javax.swing.JComboBox<String> sq;
     private javax.swing.JTextField us;
